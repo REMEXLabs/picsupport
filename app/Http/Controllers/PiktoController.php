@@ -1,6 +1,15 @@
 <?php namespace App\Http\Controllers;
 
+use App\Pikto;
+use Auth;
+use Illuminate\Http\Request;
+
 class PiktoController extends Controller {
+
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
 
   /**
    * Display a listing of the resource.
@@ -9,7 +18,8 @@ class PiktoController extends Controller {
    */
   public function index()
   {
-    return "asdf";
+    $piktos = Auth::user()->piktos()->get();
+    return view('piktos.index', ['piktos' => $piktos]);
   }
 
   /**
@@ -19,7 +29,7 @@ class PiktoController extends Controller {
    */
   public function create()
   {
-    return view('piktos');
+    return view('piktos.create');
   }
 
   /**
@@ -27,8 +37,17 @@ class PiktoController extends Controller {
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request)
   {
+    $this->validate($request, [
+        'uri' => 'required|unique:piktos|max:255'
+    ]);
+
+    $pikto = new Pikto(['uri' => $request->input('uri')]);
+
+    Auth::user()->piktos()->save($pikto);
+
+    return redirect()->route('pikto.index')->with('success', 'created');
 
   }
 
@@ -40,7 +59,8 @@ class PiktoController extends Controller {
    */
   public function show($id)
   {
-
+    $pikto = Auth::user()->piktos()->findOrFail($id);
+    return view('piktos.show', ['pikto' => $pikto]);
   }
 
   /**
@@ -51,7 +71,8 @@ class PiktoController extends Controller {
    */
   public function edit($id)
   {
-
+    $pikto = Auth::user()->piktos()->findOrFail($id);
+    return view('piktos.edit', ['pikto' => $pikto]);
   }
 
   /**
@@ -60,9 +81,12 @@ class PiktoController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($id, Request $request)
   {
-
+    $pikto = Auth::user()->piktos()->findOrFail($id);
+    $pikto->uri = $request->input('uri');
+    $pikto->save();
+    return redirect()->route('pikto.index')->with('success', 'updated');
   }
 
   /**
@@ -73,7 +97,8 @@ class PiktoController extends Controller {
    */
   public function destroy($id)
   {
-
+    $pikto = Auth::user()->piktos()->findOrFail($id)->delete();
+    return redirect()->route('pikto.index')->with('success', 'deleted');
   }
 
 }

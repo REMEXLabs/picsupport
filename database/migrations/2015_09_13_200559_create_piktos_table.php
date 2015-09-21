@@ -10,7 +10,7 @@ class CreatePiktosTable extends Migration {
 		Schema::create('piktos', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
-			$table->text('uri');
+			$table->string('uri', 255)->unique();
 			$table->timestamps();
 		});
 	}

@@ -2,6 +2,11 @@
 
 class UserController extends Controller {
 
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
   /**
    * Display a listing of the resource.
    *
@@ -9,7 +14,7 @@ class UserController extends Controller {
    */
   public function index()
   {
-    
+
   }
 
   /**
@@ -19,7 +24,7 @@ class UserController extends Controller {
    */
   public function create()
   {
-    
+
   }
 
   /**
@@ -29,7 +34,7 @@ class UserController extends Controller {
    */
   public function store()
   {
-    
+
   }
 
   /**
@@ -40,7 +45,7 @@ class UserController extends Controller {
    */
   public function show($id)
   {
-    
+
   }
 
   /**
@@ -51,7 +56,7 @@ class UserController extends Controller {
    */
   public function edit($id)
   {
-    
+
   }
 
   /**
@@ -62,7 +67,7 @@ class UserController extends Controller {
    */
   public function update($id)
   {
-    
+
   }
 
   /**
@@ -73,9 +78,9 @@ class UserController extends Controller {
    */
   public function destroy($id)
   {
-    
+
   }
-  
+
 }
 
 ?>

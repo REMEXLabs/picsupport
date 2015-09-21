@@ -12,7 +12,7 @@ class Rating extends Model {
 
 	public function pikto()
 	{
-		return $this->belongsTo('Pikto');
+		return $this->belongsTo('App\Pikto');
 	}
 
 }

@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/home', ['middleware' => 'auth', function () {
+    return view('home', ['user' => Auth::user()]);
+}]);
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -31,6 +35,6 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
-Route::resource('pikto', 'PiktoController');
 Route::resource('user', 'UserController');
+Route::resource('pikto', 'PiktoController');
 Route::resource('rating', 'RatingController');

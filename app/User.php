@@ -35,6 +35,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function piktos()
     {
-        return $this->hasMany('Pikto');
+        return $this->hasMany('App\Pikto');
     }
 }

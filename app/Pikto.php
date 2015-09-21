@@ -12,12 +12,12 @@ class Pikto extends Model {
 
 	public function user()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('App\User');
 	}
 
 	public function ratings()
 	{
-		return $this->hasMany('Rating');
+		return $this->hasMany('App\Rating');
 	}
 
 }

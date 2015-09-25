@@ -8,7 +8,7 @@ class Pikto extends Model {
 
 	protected $table = 'piktos';
 	public $timestamps = true;
-	protected $fillable = array('user_id', 'uri');
+	protected $fillable = array('user_id', 'name');
 
 	public function user()
 	{

@@ -4,8 +4,8 @@
 {!! Form::open(array('route' => 'pikto.store', 'method' => 'POST')) !!}
 	<ul>
 		<li>
-			{!! Form::label('uri', 'Uri:') !!}
-			{!! Form::text('uri') !!}
+			{!! Form::label('name', 'Name:') !!}
+			{!! Form::text('name') !!}
 		</li>
 		<li>
 			{!! Form::submit() !!}

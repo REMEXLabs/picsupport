@@ -40,10 +40,10 @@ class PiktoController extends Controller {
   public function store(Request $request)
   {
     $this->validate($request, [
-        'uri' => 'required|unique:piktos|max:255'
+        'name' => 'required|unique:piktos|max:255'
     ]);
 
-    $pikto = new Pikto(['uri' => $request->input('uri')]);
+    $pikto = new Pikto(['name' => $request->input('name')]);
 
     Auth::user()->piktos()->save($pikto);
 
@@ -84,7 +84,7 @@ class PiktoController extends Controller {
   public function update($id, Request $request)
   {
     $pikto = Auth::user()->piktos()->findOrFail($id);
-    $pikto->uri = $request->input('uri');
+    $pikto->name = $request->input('name');
     $pikto->save();
     return redirect()->route('pikto.index')->with('success', 'updated');
   }

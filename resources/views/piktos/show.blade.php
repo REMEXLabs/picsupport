@@ -2,6 +2,6 @@
 
 @section('content')
 
-<h1>{{$pikto->uri}}</h1>
+<h1>{{$pikto->name}}</h1>
 
 @endsection

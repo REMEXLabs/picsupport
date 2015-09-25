@@ -4,8 +4,8 @@
 {!! Form::model($pikto, ['route' => array('pikto.update', $pikto->id), 'method' => 'put']) !!}
 	<ul>
 		<li>
-			{!! Form::label('uri', 'Uri:') !!}
-			{!! Form::text('uri') !!}
+			{!! Form::label('name', 'Name:') !!}
+			{!! Form::text('name') !!}
 		</li>
 		<li>
 			{!! Form::submit() !!}

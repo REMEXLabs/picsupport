@@ -1,12 +1,6 @@
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@extends('template')
+
+@section('content')
 
 <form method="POST" action="/auth/register">
     {!! csrf_field() !!}
@@ -35,3 +29,5 @@
         <button type="submit">Register</button>
     </div>
 </form>
+
+@endsection

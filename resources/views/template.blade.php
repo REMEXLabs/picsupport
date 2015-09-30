@@ -4,20 +4,36 @@
         <title>Piktos</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
+    
+		<!-- PRISM syntax highliter Lea Verou (MIT-license)-->
+		<link rel="stylesheet" href="{{asset("css/prism.css")}}"/>
+		
+		<!-- Personal CSS + Font -->
+		<link rel="stylesheet" href="{{asset("css/style.css")}}">
+	
+	</head>
     <body>
 
     <div class="container">
 
-    <header>
-        @if (Auth::check())
-            <p><a href="/auth/logout">Logout</a></p>
-            <p><a href="/home">Home</a></p>
-        @else
-            <p><a href="/auth/login">Login</a></p>
-            <p><a href="/auth/register">Register</a></p>
-        @endif
-    </header>
+	
+	<!-- Navigation -->
+	<div class="leftnavigation">
+		<ul>	
+			<!-- Regestration (on/off) -->
+			@if (Auth::check())	
+			<li><a href="/home" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"></span><span class="nav_text">Home</span></a></li>
+			<li><a href="/auth/logout" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><span class="nav_text">Logout</span></a></li>
+			@else
+			<li><a href="/auth/login" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><span class="nav_text">Login</span></a></li>
+			<li><a href="/auth/register" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="nav_text">Register</span></a></li>
+			@endif
+		
+			<!-- <li><a href="#" type="" class="" data-toggle="tooltip" data-placement="right" title="Developers Area"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span></a></li> -->
+			<li><a href="/pikto" type="" class="" data-toggle="tooltip" data-placement="right" title="Piktogramme verwalten"><span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"></span></span><span class="nav_text">Manage</span></a></li>
+			<li><a href="/info" type="" class="" data-toggle="tooltip" data-placement="right" title="Impressum"><span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span></span><span class="nav_text">Info</span></a></li>
+		</ul>
+	</div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger" role="alert">

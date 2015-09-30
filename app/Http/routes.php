@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/info', function () {
+    return view('info');
+});
+
 Route::get('/home', ['middleware' => 'auth', function () {
     return view('home', ['user' => Auth::user()]);
 }]);

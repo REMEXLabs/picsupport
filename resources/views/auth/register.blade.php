@@ -2,32 +2,60 @@
 
 @section('content')
 
-<form method="POST" action="/auth/register">
-    {!! csrf_field() !!}
+<div class="row">
+<form class="form-horizontal" method="POST" action="/auth/register">
+{!! csrf_field() !!}
+<fieldset>
 
-    <div>
-        Name
-        <input type="text" name="name" value="{{ old('name') }}">
-    </div>
+<!-- Form Name -->
+<legend>Register</legend>
 
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="name">Name:</label>  
+  <div class="col-md-5">
+  <input  value="{{ old('name') }}" id="name" name="name" type="text" placeholder="Max Mustermann" class="form-control input-md" required="">
+    
+  </div>
+</div>
 
-    <div>
-        Password
-        <input type="password" name="password">
-    </div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">E-Mail:</label>  
+  <div class="col-md-5">
+  <input value="{{ old('email') }}" id="email" name="email" type="text" placeholder="example@mail.com" class="form-control input-md" required="">
+    
+  </div>
+</div>
 
-    <div>
-        Confirm Password
-        <input type="password" name="password_confirmation">
-    </div>
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password">Password:</label>
+  <div class="col-md-5">
+    <input id="password" name="password" type="password" placeholder="password" class="form-control input-md" required="">
+    
+  </div>
+</div>
 
-    <div>
-        <button type="submit">Register</button>
-    </div>
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="password_confirmation">Confirm Password:</label>
+  <div class="col-md-5">
+    <input id="password_confirmation" name="password_confirmation" type="password" placeholder="password" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="">Register:</label>
+  <div class="col-md-4">
+    <button id="" name="" class="btn btn-primary">OK</button>
+  </div>
+</div>
+
+</fieldset>
 </form>
+</div>
 
 @endsection

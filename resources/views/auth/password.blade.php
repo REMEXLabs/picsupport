@@ -2,19 +2,33 @@
 
 @section('content')
 
-<form method="POST" action="/password/email">
-    {!! csrf_field() !!}
+<div class="row">
+<form class="form-horizontal" method="POST" action="/password/email">
+{!! csrf_field() !!}
+<fieldset>
 
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
+<!-- Form Name -->
+<legend>Reset Password</legend>
 
-    <div>
-        <button type="submit">
-            Send Password Reset Link
-        </button>
-    </div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">E-mail:</label>  
+  <div class="col-md-6">
+  <input value="{{ old('email') }}" id="email" name="email" type="text" placeholder="example@mail.com" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-4">
+    <button  type="submint" id="" name="" class="btn btn-primary">Send Password Reset Link!</button>
+  </div>
+</div>
+
+</fieldset>
 </form>
+</div>
 
 @endsection

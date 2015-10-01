@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>{{$pikto->name}}</h1>
+<h1>{{$pikto->title}}</h1>
 
 <table class="table table-hover" id="props">
 <thead>
@@ -14,7 +14,7 @@
 </tbody>
 </table>
 
-<img src="" alt="" id="preview">
+<img src="" alt="" id="preview" style="border:3px solid red;">
 
 @endsection
 

@@ -4,7 +4,7 @@
 
 @forelse ($piktos as $pikto)
     <li>
-        <a href="/pikto/{{$pikto->id}}">{{ $pikto->name }}</a>
+        <a href="/pikto/{{$pikto->id}}">{{ $pikto->title }}</a>
         -
         <a href="/pikto/{{$pikto->id}}/edit">Edit</a>
         -

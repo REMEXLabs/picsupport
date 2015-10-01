@@ -11,6 +11,7 @@ class CreatePiktosTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->string('name', 255)->unique();
+			$table->string('title', 255);
 			$table->timestamps();
 		});
 	}

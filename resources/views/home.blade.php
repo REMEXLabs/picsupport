@@ -2,8 +2,11 @@
 
 @section('content')
 
-<p>Hello {{ $user->name }}!</p>
-
-<p><a href="/pikto">Your Piktos</a></p>
+<div class="row">
+    <div class="col-md-12">
+        <h1>Welcome, {{ $user->name }}!</h1>
+        <p><a href="/pikto">View your Piktos</a></p>
+    </div>
+</div>
 
 @endsection

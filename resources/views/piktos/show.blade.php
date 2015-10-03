@@ -4,6 +4,8 @@
 
 <h1>{{$pikto->title}}</h1>
 
+<p><a href="/pikto/{{$pikto->id}}/edit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Edit</a></p>
+
 <table class="table table-hover" id="props">
 <thead>
     <th>Name</th>

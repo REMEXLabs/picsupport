@@ -19,13 +19,13 @@ body{
 	text-align: center;
 }
 
-  
+
 .leftnavigation ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
     }
-	
+
 .leftnavigation ul a {
 color: #b1b1b1;
 
@@ -93,12 +93,12 @@ p, .dl-horizontal {
 
 
 @font-face {
-font-family: Open-Dyslexic; 
+font-family: Open-Dyslexic;
 src: url('../open_dyslexic/OpenDyslexic-Regular.otf');
 }
 
 @font-face {
-font-family: ElficCalson; 
+font-family: ElficCalson;
 src: url('../elfic_caslin/Elfic Caslon.ttf');
 }
 
@@ -164,4 +164,17 @@ src: url('../elfic_caslin/Elfic Caslon.ttf');
 	border-radius: 4px;
 	border: 1px solid #ccc;
 	margin: 2px;
+}
+
+.pikto-index--element {
+	height: 150px;
+	border: 1px solid #124152;
+	padding: 5px;
+	margin: 10px;
+	border-radius: 5px;
+}
+
+.pikto-index--element:last-child {
+	border-style: dashed;
+	line-height: 130px;
 }

@@ -1,22 +1,29 @@
 @extends('template')
 
 @section('content')
+<div class="row">
+    <div class="col-md-12">
+        <h1>{{$pikto->title}}</h1>
 
-<h1>{{$pikto->title}}</h1>
+        <p><a href="/pikto/{{$pikto->id}}/edit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Edit</a></p>
 
-<p><a href="/pikto/{{$pikto->id}}/edit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Edit</a></p>
+        <table class="table table-hover" id="props">
+        <thead>
+            <th>Name</th>
+            <th>Value</th>
+        </thead>
+        <tbody>
 
-<table class="table table-hover" id="props">
-<thead>
-    <th>Name</th>
-    <th>Value</th>
-</thead>
-<tbody>
+        </tbody>
+        </table>
 
-</tbody>
-</table>
+        <div id="status-indicator" class="text-center">
+            <span class="glyphicon glyphicon-hourglass spinning"></span>
+        </div>
 
-<img src="" alt="" id="preview" style="border:3px solid red;">
+        <img src="" alt="" id="preview" style="border:3px solid red;">
+    </div>
+</div>
 
 @endsection
 
@@ -49,10 +56,15 @@
                 });
                 $('#preview').prop('src', uri);
 
+                $('#status-indicator').remove();
+
                 console.log(pikto);
             }).fail(function(response){
                 console.log(response.error);
                 console.log(response.status);
+                $('#status-indicator')
+                    .addClass('alert alert-danger')
+                    .html('<b>Failed to load Pikto data.</b><br>' + response.error);
             });
 
     });

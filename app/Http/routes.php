@@ -19,6 +19,14 @@ Route::get('/info', function () {
     return view('info');
 });
 
+Route::get('/manual', function () {
+    return view('manual');
+});
+
+Route::get('/license', function () {
+    return view('license');
+});
+
 Route::get('/home', ['middleware' => 'auth', function () {
     return view('home', ['user' => Auth::user()]);
 }]);

@@ -67,7 +67,10 @@ class PiktoController extends Controller {
   public function show($id)
   {
     $pikto = Auth::user()->piktos()->findOrFail($id);
-    return view('piktos.show', ['pikto' => $pikto]);
+    $rating = $pikto->ratings()->avg('value');
+    $count = $pikto->ratings()->count();
+    return view('piktos.show', ['pikto' => $pikto, 'rating' => [
+      'avg' => (is_null($rating) ? 0 : $rating), 'count' => $count]]);
   }
 
   /**

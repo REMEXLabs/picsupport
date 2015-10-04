@@ -185,6 +185,10 @@ src: url('../elfic_caslin/Elfic Caslon.ttf');
 	line-height: 130px;
 }
 
+tfoot {
+    font-weight: bold;
+}
+
 /* General rules */
 
 .glyphicon.spinning {

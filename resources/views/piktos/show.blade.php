@@ -12,7 +12,7 @@
     <div class="col-md-12">
         <h1>{{$pikto->title}}</h1>
 
-        <p><a href="/pikto/{{$pikto->id}}/edit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Edit</a></p>
+        <p><a href="/pikto/{{$pikto->id}}/edit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Update</a></p>
 
         <table class="table table-hover" id="props">
         <thead>
@@ -22,13 +22,17 @@
         <tbody>
 
         </tbody>
+        <tfoot>
+            <td>Number of Ratings / Average</td>
+            <td>{{$rating['count']}} / {{number_format($rating['avg'], 1)}}</td>
+        </tfoot>
         </table>
 
         <div id="status-indicator" class="text-center">
             <span class="glyphicon glyphicon-hourglass spinning"></span>
         </div>
 
-        <img src="" alt="" id="preview" style="border:3px solid red;">
+        <img src="" alt="" id="preview" class="center-block img-responsive">
     </div>
 </div>
 

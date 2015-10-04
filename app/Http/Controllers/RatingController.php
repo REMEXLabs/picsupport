@@ -1,5 +1,10 @@
 <?php namespace App\Http\Controllers;
 
+use App\Rating;
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 class RatingController extends Controller {
 
   /**
@@ -7,9 +12,11 @@ class RatingController extends Controller {
    *
    * @return Response
    */
-  public function index()
+  public function index($piktoId)
   {
-    
+    $pikto = Auth::user()->piktos()->findOrFail($piktoId);
+    $rating = $pikto->ratings()->avg('value');
+    return number_format($rating, 1);
   }
 
   /**
@@ -17,9 +24,9 @@ class RatingController extends Controller {
    *
    * @return Response
    */
-  public function create()
+  public function create($piktoId)
   {
-    
+
   }
 
   /**
@@ -27,9 +34,30 @@ class RatingController extends Controller {
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request, $piktoId)
   {
-    
+
+    $rated = $request->session()->get('rated', []);
+
+    if (in_array($piktoId, $rated)) {
+      return new Response('', 200);
+    }
+
+    $this->validate($request, [
+      'rating' => 'required|numeric|integer|between:1,5'
+    ]);
+
+    $rating = new Rating([
+      'value' => $request->input('rating')
+    ]);
+
+    Auth::user()->piktos()->findOrFail($piktoId)->ratings()->save($rating);
+
+    array_push($rated, $piktoId);
+
+    $request->session()->put('rated', $rated);
+
+    return new Response('', 201);
   }
 
   /**
@@ -38,9 +66,9 @@ class RatingController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function show($id)
+  public function show($piktoId, $ratingId)
   {
-    
+
   }
 
   /**
@@ -49,9 +77,9 @@ class RatingController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function edit($id)
+  public function edit($piktoId, $ratingId)
   {
-    
+
   }
 
   /**
@@ -60,9 +88,9 @@ class RatingController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($piktoId, $ratingId)
   {
-    
+
   }
 
   /**
@@ -71,11 +99,11 @@ class RatingController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
+  public function destroy($piktoId, $ratingId)
   {
-    
+
   }
-  
+
 }
 
 ?>

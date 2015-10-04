@@ -49,4 +49,4 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::resource('user', 'UserController');
 Route::resource('pikto', 'PiktoController');
-Route::resource('rating', 'RatingController');
+Route::resource('pikto.rating', 'RatingController');

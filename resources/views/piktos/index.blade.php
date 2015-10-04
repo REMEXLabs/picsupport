@@ -13,7 +13,7 @@
 @foreach ($piktos as $pikto)
     <div class="col-md-2 pikto-index--element">
         <a href="/pikto/{{$pikto->id}}" class="center-block text-center">{{ $pikto->title }}</a>
-        <img src="http://res.openurc.org/retrieve?name={{$pikto->name}}&amp;modified=2015-10-01T20:19:02.0Z" alt="{{ $pikto->title }}" class="img-responsive center-block">
+        <img src="http://res.openurc.org/retrieve?name={{$pikto->name}}" alt="{{ $pikto->title }}" class="img-responsive center-block">
     </div>
 @endforeach
 

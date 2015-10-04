@@ -9,8 +9,8 @@
 
         <table class="table table-hover" id="props">
         <thead>
-            <th>Name</th>
-            <th>Value</th>
+            <th>Title</th>
+            <th>Language</th>
         </thead>
         <tbody>
 
@@ -45,17 +45,19 @@
                 var pikto = responses.firstResponse().firstResource();
                 var uri = pikto.globalAts[0];
 
+                var titles = titlesFromPikto(pikto);
+
                 var proplist = $('#props tbody');
 
-                $.each(pikto.props, function(idx, prop){
+                $.each(titles, function(idx, title){
 
                     proplist.append($('<tr>').append(
-                        [ $('<td>').html(prop.name),
-                          $('<td>').html(prop.value) ]));
+                        [ $('<td>').html(title.title),
+                          $('<td>').html(title.lang) ]));
 
                 });
-                $('#preview').prop('src', uri);
 
+                $('#preview').prop('src', uri);
                 $('#status-indicator').remove();
 
                 console.log(pikto);
@@ -64,7 +66,7 @@
                 console.log(response.status);
                 $('#status-indicator')
                     .addClass('alert alert-danger')
-                    .html('<b>Failed to load Pikto data.</b><br>' + response.error);
+                    .html('<b>Failed to load Pikto data.</b><br>');
             });
 
     });

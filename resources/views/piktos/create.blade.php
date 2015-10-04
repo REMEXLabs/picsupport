@@ -63,16 +63,6 @@
 
             </fieldset>
 
-
-            <ul id="titles">
-                {{-- <li>
-                    <label for="title0">Title:</label>
-                    <input name="title[0][title]" type="text" id="title0" required="" value="{{old('title.0.title')}}">
-                    <label for="lang0">Language:</label>
-                    <input name="title[0][lang]" type="text" id="lang0" value="en" readonly="">
-                </li> --}}
-            </ul>
-
         {!! Form::close() !!}
 
     </div>
@@ -84,7 +74,7 @@
 @section('js')
 
 <div class="form-group" id="template" style="display: none;" aria-hidden="true">
-  <label class="col-md-2 control-label" for="">Titles:</label>
+  <label class="col-md-2 control-label" for="">Title:</label>
   <div class="col-md-4">
     <div class="input-group">
       <span class="input-group-addon">Title</span>
@@ -95,7 +85,7 @@
   <div class="col-md-4">
     <div class="input-group">
       <span class="input-group-addon">Language</span>
-      <input name="" type="text" id="" readonly="" class="form-control" placeholder="Language">
+      <input name="" type="text" id="" class="form-control" placeholder="Language">
     </div>
     <p class="help-block">Title language</p>
   </div>

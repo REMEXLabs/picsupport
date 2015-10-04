@@ -12,6 +12,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        'pikto/*/rating'
+        'pikto/*/rating',
+        'rating/*'
     ];
 }

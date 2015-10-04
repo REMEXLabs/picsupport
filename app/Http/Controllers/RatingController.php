@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Rating;
+use App\Pikto;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,9 +15,15 @@ class RatingController extends Controller {
    */
   public function index($piktoId)
   {
-    $pikto = Auth::user()->piktos()->findOrFail($piktoId);
+    $pikto = Pikto::findOrFail($piktoId);
     $rating = $pikto->ratings()->avg('value');
     return number_format($rating, 1);
+  }
+
+  public function directIndex($name)
+  {
+    $piktoId = Pikto::where('name', $name)->first()->id;
+    return $this->index($piktoId);
   }
 
   /**
@@ -51,13 +58,19 @@ class RatingController extends Controller {
       'value' => $request->input('rating')
     ]);
 
-    Auth::user()->piktos()->findOrFail($piktoId)->ratings()->save($rating);
+    Pikto::findOrFail($piktoId)->ratings()->save($rating);
 
     array_push($rated, $piktoId);
 
     $request->session()->put('rated', $rated);
 
     return new Response('', 201);
+  }
+
+  public function directStore(Request $request, $name)
+  {
+    $piktoId = Pikto::where('name', $name)->first()->id;
+    return $this->store($request, $piktoId);
   }
 
   /**

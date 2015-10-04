@@ -49,4 +49,7 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::resource('user', 'UserController');
 Route::resource('pikto', 'PiktoController');
+
+Route::get('rating/{name}', 'RatingController@directIndex');
+Route::post('rating/{name}', 'RatingController@directStore');
 Route::resource('pikto.rating', 'RatingController');

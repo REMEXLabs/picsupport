@@ -172,11 +172,15 @@ src: url('../elfic_caslin/Elfic Caslon.ttf');
 	height: 150px;
 	border: 1px solid #124152;
 	padding: 5px;
-	margin: 10px;
 	border-radius: 5px;
+    margin-bottom: 30px;
 }
 
-.pikto-index--element:last-child {
+.pikto-index--element img {
+    max-height: 110px;
+}
+
+.pikto-index--element.new {
 	border-style: dashed;
 	line-height: 130px;
 }

@@ -22,7 +22,7 @@
 		<ul>
 			<!-- Regestration (on/off) -->
 			@if (Auth::check())
-			<li><a href="/pikto" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"></span><span class="nav_text">Home</span></a></li>
+			<li><a href="/" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"></span><span class="nav_text">Home</span></a></li>
 			<li><a href="/auth/logout" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><span class="nav_text">Logout</span></a></li>
 			@else
 			<li><a href="/auth/login" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><span class="nav_text">Login</span></a></li>
@@ -35,11 +35,9 @@
 		</ul>
 	</div>
 
-    <div class="container" style="margin-top:1em;">
-        <div class="row">
-            <div class="col-md-12">
-                @yield('breadcrumbs')
-            </div>
+    <div class="row" style="margin-top:1em;">
+        <div class="col-md-12">
+            @yield('breadcrumbs')
         </div>
     </div>
 
@@ -61,6 +59,7 @@
     @endif
 
     </div>
+
 
 
     <div class="container">

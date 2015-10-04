@@ -2,6 +2,6 @@
 
 @section('content')
 
-<p>Welcome to Piktos!</p>
+<h1>Welcome to Piktos!</h1>
 
 @endsection

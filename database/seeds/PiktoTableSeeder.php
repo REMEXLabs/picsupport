@@ -23,5 +23,11 @@ class PiktoTableSeeder extends Seeder
             'title' => 'Pixel',
             'user_id' => 1
         ));
+
+        Pikto::create(array(
+            'name' => 'urn:uuid:98b6c3d8-6a84-11e5-9683-00075c51ac83',
+            'title' => 'Another Pixel',
+            'user_id' => 1
+        ));
     }
 }

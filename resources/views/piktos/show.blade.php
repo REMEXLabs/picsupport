@@ -1,5 +1,12 @@
 @extends('template')
 
+@section('breadcrumbs')
+<ol class="breadcrumb">
+  <li><a href="/pikto">Piktos</a></li>
+  <li class="active">{{$pikto->title}}</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-md-12">

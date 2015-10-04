@@ -1,5 +1,13 @@
 @extends('template')
 
+@section('breadcrumbs')
+<ol class="breadcrumb">
+  <li><a href="/pikto">Piktos</a></li>
+  <li><a href="/pikto/{{$pikto->id}}">{{$pikto->title}}</a></li>
+  <li class="active">Update</li>
+</ol>
+@endsection
+
 @section('content')
 
 <div class="row">
@@ -111,6 +119,7 @@
                 $('#preview').prop('src', uri);
                 $('#status-indicator').remove();
                 $('#update').removeAttr('disabled');
+                $('#remove').prop('disabled', titles.length <= 1);
 
                 console.log(pikto);
             }).fail(function(response){

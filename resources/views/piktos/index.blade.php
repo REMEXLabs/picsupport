@@ -1,5 +1,11 @@
 @extends('template')
 
+@section('breadcrumbs')
+<ol class="breadcrumb">
+  <li class="active">Piktos</li>
+</ol>
+@endsection
+
 @section('content')
 
 <div class="row">

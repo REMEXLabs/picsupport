@@ -22,7 +22,7 @@
 		<ul>
 			<!-- Regestration (on/off) -->
 			@if (Auth::check())
-			<li><a href="/home" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"></span><span class="nav_text">Home</span></a></li>
+			<li><a href="/pikto" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"></span><span class="nav_text">Home</span></a></li>
 			<li><a href="/auth/logout" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><span class="nav_text">Logout</span></a></li>
 			@else
 			<li><a href="/auth/login" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><span class="nav_text">Login</span></a></li>
@@ -34,6 +34,14 @@
 			<li><a href="/info" type="" class="" data-toggle="tooltip" data-placement="right" title="Impressum"><span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span></span><span class="nav_text">Info</span></a></li>
 		</ul>
 	</div>
+
+    <div class="container" style="margin-top:1em;">
+        <div class="row">
+            <div class="col-md-12">
+                @yield('breadcrumbs')
+            </div>
+        </div>
+    </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger" role="alert">

@@ -42,7 +42,76 @@ class PiktoController extends Controller {
    */
   public function store(PiktoRequest $request)
   {
+    $xml = $this->generateXML($request);
 
+    $arrayResponse = $this->sendXML($xml);
+
+    $uuid = $arrayResponse['value'][0]['attributes']['val'];
+
+    $pikto = new Pikto([
+      'title' => $request->input('title.0.title'),
+      'name' => $uuid
+      ]);
+
+    Auth::user()->piktos()->save($pikto);
+
+    return redirect()->route('pikto.index')->with('success', 'created');
+  }
+
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function show($id)
+  {
+    $pikto = Auth::user()->piktos()->findOrFail($id);
+    return view('piktos.show', ['pikto' => $pikto]);
+  }
+
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function edit($id)
+  {
+    $pikto = Auth::user()->piktos()->findOrFail($id);
+    return view('piktos.edit', ['pikto' => $pikto]);
+  }
+
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function update($id, PiktoRequest $request)
+  {
+    $pikto = Auth::user()->piktos()->findOrFail($id);
+    $xml = $this->generateXML($request, $pikto->name);
+    $response = $this->sendXML($xml);
+    $pikto->title = $request->input('title.0.title');
+    $pikto->save();
+    return redirect()->route('pikto.index')->with('success', 'updated');
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function destroy($id)
+  {
+    Auth::user()->piktos()->findOrFail($id)->delete();
+    return redirect()->route('pikto.index')->with('success', 'deleted');
+  }
+
+  private function generateXML($request, $name = NULL)
+  {
     $writer = new Sabre\Xml\Writer();
     $writer->openMemory();
 
@@ -68,6 +137,13 @@ class PiktoController extends Controller {
             'val' => $request->file('image')->getClientOriginalName()
         ], 'value' => '' ],
     ];
+
+    if (!is_null($name)) {
+      array_push($props, [ 'name' => 'prop', 'attributes' => [
+            'name' => 'http://openurc.org/ns/res#name',
+            'val' => $name
+        ], 'value' => '' ]);
+    }
 
     foreach ($request->input('title') as $title) {
         array_push($props, [
@@ -132,8 +208,11 @@ class PiktoController extends Controller {
 
     $writer->endElement();
 
-    $xml = $writer->outputMemory();
+    return $writer->outputMemory();
+  }
 
+  private function sendXML($xml)
+  {
     $client = new GuzzleHttp\Client([
         // Base URI is used with relative requests
         'base_uri' => 'https://res.openurc.org:9443/'
@@ -151,69 +230,7 @@ class PiktoController extends Controller {
     $reader = new Sabre\Xml\Reader();
     $reader->xml($body);
 
-    $arrayResponse = $reader->parse();
-
-    $uuid = $arrayResponse['value'][0]['attributes']['val'];
-
-    $pikto = new Pikto([
-      'title' => $request->input('title.0.title'),
-      'name' => $uuid
-      ]);
-
-    Auth::user()->piktos()->save($pikto);
-
-    return redirect()->route('pikto.index')->with('success', 'created');
-
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-    $pikto = Auth::user()->piktos()->findOrFail($id);
-    return view('piktos.show', ['pikto' => $pikto]);
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    $pikto = Auth::user()->piktos()->findOrFail($id);
-    return view('piktos.edit', ['pikto' => $pikto]);
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id, PiktoRequest $request)
-  {
-    $pikto = Auth::user()->piktos()->findOrFail($id);
-    $pikto->name = $request->input('title');
-    $pikto->save();
-    return redirect()->route('pikto.index')->with('success', 'updated');
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    $pikto = Auth::user()->piktos()->findOrFail($id)->delete();
-    return redirect()->route('pikto.index')->with('success', 'deleted');
+    return $reader->parse();
   }
 
 }

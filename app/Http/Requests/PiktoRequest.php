@@ -38,12 +38,15 @@ class PiktoRequest extends Request
 
     public function messages()
     {
-        $messages = [];
+        $messages = [
+            'image.required' => 'Please upload an image that shows your Pikto.',
+            'image.image' => 'The Pikto image must be either jpeg, png, bmp, gif or svg.',
+        ];
         foreach($this->request->get('title') as $key => $val)
         {
             $messages['title.'.$key.'.title.required'] = 'Please fill all titles or delete unused fields.';
             $messages['title.'.$key.'.lang.required'] = 'Please fill all languages or delete unused fields.';
         }
-return $messages;
+        return $messages;
     }
 }

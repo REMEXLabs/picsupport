@@ -23,8 +23,16 @@
 
         </tbody>
         <tfoot>
-            <td>Number of Ratings / Average</td>
-            <td>{{$rating['count']}} / {{number_format($rating['avg'], 1)}}</td>
+            <td>{{$rating['count']}} Rating{{$rating['count'] !== 1 ? 's' : ''}}</td>
+            <td>Average: {{number_format($rating['avg'], 1)}}<br>
+                @for ($i = 1; $i < 6; $i++)
+                    @if ($i <= round($rating['avg']))
+                        <span class="glyphicon glyphicon-star"></span>
+                    @else
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    @endif
+                @endfor
+            </td>
         </tfoot>
         </table>
 

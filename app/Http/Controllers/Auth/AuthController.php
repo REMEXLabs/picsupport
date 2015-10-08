@@ -43,12 +43,20 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
+
+        $messages = [
+            'g-recaptcha-response.required' => 'Please prove that you are human by completing the captcha.'
+        ];
+
         return Validator::make($data, [
             'name' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
-        ]);
+            'g-recaptcha-response' => 'required|captcha'
+        ], $messages);
     }
+
+
 
     /**
      * Create a new user instance after a valid registration.

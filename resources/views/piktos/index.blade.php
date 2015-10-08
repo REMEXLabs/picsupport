@@ -17,7 +17,7 @@
 <div class="row">
 
 @foreach ($piktos as $pikto)
-    <div class="col-md-2">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
         <div class="pikto-index--element">
             <a href="/pikto/{{$pikto->id}}" class="center-block text-center">{{ $pikto->title }}</a>
             <img src="http://res.openurc.org/retrieve?name={{$pikto->name}}" alt="{{ $pikto->title }}" class="img-responsive center-block">
@@ -25,9 +25,9 @@
     </div>
 @endforeach
 
-    <div class="col-md-2">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
         <div class="pikto-index--element new text-center">
-            <a href="/pikto/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Create a pikto</a>
+            <a href="/pikto/create" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span> Create a pikto</a>
         </div>
     </div>
 

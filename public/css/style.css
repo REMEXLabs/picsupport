@@ -19,6 +19,16 @@ body{
 	text-align: center;
 }
 
+.container {
+	padding-left: 80px;
+}
+
+@media (min-width: 768px) { /* >= sm */
+	.container {
+		padding-left: 65px;
+	}
+}
+
 
 .leftnavigation ul {
 	list-style: none;

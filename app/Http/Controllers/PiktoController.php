@@ -21,7 +21,7 @@ class PiktoController extends Controller {
    */
   public function index()
   {
-    $piktos = Auth::user()->piktos()->get();
+    $piktos = Auth::user()->piktos()->orderBy('title')->get();
     return view('piktos.index', ['piktos' => $piktos]);
   }
 

@@ -54,9 +54,8 @@
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="">Register:</label>
-  <div class="col-md-4">
-    <button id="" name="" class="btn btn-primary">OK</button>
+  <div class="col-md-4 col-md-offset-4">
+    <button id="" name="" class="btn btn-primary">Register</button>
   </div>
 </div>
 
@@ -64,8 +63,4 @@
 </form>
 </div>
 
-@endsection
-
-@section('js')
-<script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

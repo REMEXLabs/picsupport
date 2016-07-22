@@ -17,10 +17,20 @@ class Cors implements Middleware
      */
     public function handle($request, Closure $next)
     {
+        if($request->getMethod() == "OPTIONS") {
+            // The client-side application can set only headers allowed in Access-Control-Allow-Headers
+            return Response::make('OK', 200)
+                ->header('Access-Control-Allow-Origin' , $request->headers->get('Origin'))
+                ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
+                ->header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin')
+                ->header('Access-Control-Allow-Credentials', 'true');
+        }
+
         return $next($request)
-            ->header('Access-Control-Allow-Origin' , '*')
+            ->header('Access-Control-Allow-Origin' , $request->headers->get('Origin'))
             ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
-            ->header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin');
+            ->header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin')
+            ->header('Access-Control-Allow-Credentials', 'true');
     }
 
 }

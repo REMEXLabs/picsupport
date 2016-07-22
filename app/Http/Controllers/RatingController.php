@@ -17,7 +17,7 @@ class RatingController extends Controller {
   {
     $pikto = Pikto::findOrFail($piktoId);
     $rating = $pikto->ratings()->avg('value');
-    return number_format($rating, 1);
+    return response()->json(['rating' => round($rating, 1)]);
   }
 
   public function directIndex($name)

@@ -50,6 +50,6 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 Route::resource('user', 'UserController');
 Route::resource('pikto', 'PiktoController');
 
-Route::get('rating/{name}', 'RatingController@directIndex');
-Route::post('rating/{name}', 'RatingController@directStore');
+Route::get('rating/{name}', 'RatingController@directIndex')->middleware(['cors']);
+Route::post('rating/{name}', 'RatingController@directStore')->middleware(['cors']);
 Route::resource('pikto.rating', 'RatingController');

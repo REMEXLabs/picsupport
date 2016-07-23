@@ -22,7 +22,7 @@ class RatingController extends Controller {
 
   public function directIndex($name)
   {
-    $piktoId = Pikto::where('name', $name)->first()->id;
+    $piktoId = Pikto::where('name', $name)->value('id');
     return $this->index($piktoId);
   }
 
@@ -69,7 +69,7 @@ class RatingController extends Controller {
 
   public function directStore(Request $request, $name)
   {
-    $piktoId = Pikto::where('name', $name)->first()->id;
+    $piktoId = Pikto::where('name', $name)->value('id');
     return $this->store($request, $piktoId);
   }
 

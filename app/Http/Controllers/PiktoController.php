@@ -193,6 +193,11 @@ class PiktoController extends Controller {
         ], 'value' => '' ],
     ];
 
+    $groups = [
+        [ 'name' => 'group', 'attributes' => [ 'val' => env('RES_GROUP') ], 'value' => ''],
+        [ 'name' => 'group', 'attributes' => [ 'val' => 'hdm-olb' ], 'value' => '']
+    ];
+
     $resource = [ 'resource' => [ [
         'name' => 'props',
         'attributes' => [
@@ -205,6 +210,9 @@ class PiktoController extends Controller {
     ], [
         'name' => 'rights',
         'value' => $rights
+    ], [
+        'name' => 'groups',
+        'value' => $groups
     ] ] ];
 
     $writer->startElement('request');

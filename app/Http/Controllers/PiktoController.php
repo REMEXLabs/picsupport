@@ -182,6 +182,8 @@ class PiktoController extends Controller {
             'retrieve' => 'true',
         ], 'value' => '' ],
         [ 'name' => 'group', 'attributes' => [
+            'read' => 'true',
+            'write' => 'true',
             'query' => 'true',
             'retrieve' => 'true',
         ], 'value' => '' ],

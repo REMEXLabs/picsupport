@@ -29,11 +29,7 @@
 			<li><a href="/auth/register" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="nav_text">Register</span></a></li>
 			@endif
 
-			<!-- <li><a href="#" type="" class="" data-toggle="tooltip" data-placement="right" title="Developers Area"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span></a></li> -->
-			<li><a href="/pikto" type="" class="" data-toggle="tooltip" data-placement="right" title="Piktogramme verwalten"><span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"></span></span><span class="nav_text">Manage</span></a></li>
-			<li><a href="/manual" type="" class="" data-toggle="tooltip" data-placement="right" title="Info"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span><span class="nav_text">Manual</span></a></li>
-			<li><a href="/info" type="" class="" data-toggle="tooltip" data-placement="right" title="Info"><span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span></span><span class="nav_text">Info</span></a></li>
-			<li><a href="/license" type="" class="" data-toggle="tooltip" data-placement="right" title="Info"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span></span><span class="nav_text">License</span></a></li>
+			<li><a href="https://gpii.eu/legal/" type="" class="" data-toggle="tooltip" data-placement="right" title="Info"><span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span></span><span class="nav_text">Legal</span></a></li>
 		</ul>
 	</div>
 

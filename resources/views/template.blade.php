@@ -30,7 +30,8 @@
 			@endif
 
 			<li><a href="/pikto" type="" class="" data-toggle="tooltip" data-placement="right" title="Piktogramme verwalten"><span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"></span></span><span class="nav_text">Manage</span></a></li>
-			<li><a href="https://gpii.eu/legal/" type="" class="" data-toggle="tooltip" data-placement="right" title="Info"><span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span></span><span class="nav_text">Legal</span></a></li>
+			<li><a href="https://gpii.eu/legal/en/imprint.html" type="" class="" data-toggle="tooltip" data-placement="right" title="Imprint/Disclaimer"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span></span><span class="nav_text">Imprint/Disclaimer</span></a></li>
+            <li><a href="https://gpii.eu/legal/en/privacy.html" type="" class="" data-toggle="tooltip" data-placement="right" title="Privacy Policy"><span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span></span><span class="nav_text">Privacy Policy</span></a></li>
 		</ul>
 	</div>
 

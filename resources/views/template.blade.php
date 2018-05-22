@@ -26,9 +26,10 @@
 			<li><a href="/auth/logout" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><span class="nav_text">Logout</span></a></li>
 			@else
 			<li><a href="/auth/login" type="" class="" data-toggle="tooltip" data-placement="right" title="Login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><span class="nav_text">Login</span></a></li>
-			<li><a href="/auth/register" type="" class="" data-toggle="tooltip" data-placement="right" title="Home"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="nav_text">Register</span></a></li>
+			<li><a href="/auth/register" type="" class="" data-toggle="tooltip" data-placement="right" title="Register"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="nav_text">Register</span></a></li>
 			@endif
 
+			<li><a href="/pikto" type="" class="" data-toggle="tooltip" data-placement="right" title="Piktogramme verwalten"><span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"></span></span><span class="nav_text">Manage</span></a></li>
 			<li><a href="https://gpii.eu/legal/" type="" class="" data-toggle="tooltip" data-placement="right" title="Info"><span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span></span><span class="nav_text">Legal</span></a></li>
 		</ul>
 	</div>

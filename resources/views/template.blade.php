@@ -71,6 +71,8 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{{asset('js/jquery.res.min.js')}}"></script>
     <script src="{{asset('js/helper.js')}}"></script>
+    <script src="{{asset('js/remex-cookies.min.js')}}"></script>
+    <script>let remex_cookies_wp_language = 'en';</script>
     @yield('js')
     </body>
 </html>

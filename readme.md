@@ -1,6 +1,6 @@
 # Picsupport
 ## Installation
-To install create a custom ``.env`` file and a database.
+To install create a custom ``.env`` file and a database. Then run the following command:
 
 ~~~sh
 chmod 755 -R picsupport.gpii.eu/ &&\
